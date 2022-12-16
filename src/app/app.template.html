@@ -1,0 +1,97 @@
+<div class="container"></div>
+<table
+  class="table table-bordered"
+  style="background-color: #222; color: #eee; text-align: right"
+>
+  <thead>
+    <tr>
+      <th style="width: 40%">Key</th>
+      <th *ngFor="let item of result">Base</th>
+      <th *ngFor="let item of result">Full</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Atk</td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.Char.AtkBase | number : '1.0-0'}} / {{item.Dmg.Char.AtkTotal
+        | number : '1.0-0'}}
+      </td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.TotalAtk | number: '1.0-0'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Dmg Bonus</td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.Char.DamageBonus | number : '1.0-2'}}
+      </td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.DamageBonus | number: '1.0-2'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Rate</td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.Char.CritRate | number : '1.1-1'}}
+      </td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.TotalCritRate| number : '1.1-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Crit</td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.Char.CritDamage | number : '1.1-1'}}
+      </td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.TotalCritDamage | number : '1.1-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td>ER</td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.Char.ERecharge | number : '1.1-1'}}
+      </td>
+      <td *ngFor="let item of result">
+        {{item.Dmg.Char.ERecharge | number : '1.1-1'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Avg Dmg</td>
+      <td *ngFor="let item of result" colspan="2">
+        {{item.Dmg.DmgAvg | number : '1.0-0'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Crit Dmg</td>
+      <td *ngFor="let item of result" colspan="2">
+        {{item.Dmg.DmgCrit | number : '1.0-0'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Atk Substat</td>
+      <td *ngFor="let item of result" colspan="2">
+        {{item.AtkUpCount | number : '1.0-0'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Crit Substat</td>
+      <td *ngFor="let item of result" colspan="2">
+        {{item.CritDamageUpCount | number : '1.0-0'}}
+      </td>
+    </tr>
+    <tr>
+      <td>Rate Substat</td>
+      <td *ngFor="let item of result" colspan="2">
+        {{item.CritRateUpCount | number : '1.0-0'}}
+      </td>
+    </tr>
+    <tr>
+      <td>ER Substat</td>
+      <td *ngFor="let item of result" colspan="2">
+        {{item.EChargeUpCount | number : '1.0-0'}}
+      </td>
+    </tr>
+  </tbody>
+</table>
