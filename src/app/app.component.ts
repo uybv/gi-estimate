@@ -18,7 +18,8 @@ export class AppComponent {
   constructor(private dmgSrv: DmgService) {
     //this.ayakaEstimate();
     //this.kleeEstimate();
-    this.yoiEstimate();
+    //this.yoiEstimate();
+    this.yeaEstimate();
   }
 
   private yoiEstimate() {
@@ -94,6 +95,33 @@ export class AppComponent {
     var condition = new OptimizerCondition();
     condition.MinEr = 100;
     //condition.MinRate = 45;
+    condition.Compare = 'Dmg';
+    this.result = this.dmgSrv.Optimizer(char, buff, 30, condition, 1);
+  }
+
+  private yeaEstimate() {
+    //this.dmg = dmgSrv.GetDmg(1016, 2000, 202.1, 119.6, 45, 250);
+    //console.log(JSON.stringify(this.dmg));
+    var atkBase = 926;
+    var atkFlat = 311;
+    var totalAtk = ((46.6 + 18 + 18) / 100) * atkBase + atkBase + atkFlat;
+    var dmgBonus = 46.6;
+    var critRate = 24.2;
+    var critDmg = 50 + 66.2 + 62.2;
+
+    var char = new CharEntity(
+      atkBase,
+      totalAtk,
+      151.7,
+      dmgBonus,
+      critRate,
+      critDmg
+    );
+    char.ERecharge = 100;
+    var buff = new BuffEntity(0, 0, 0, 0, 0);
+    var condition = new OptimizerCondition();
+    condition.MinEr = 135;
+    condition.MinRate = 75;
     condition.Compare = 'Dmg';
     this.result = this.dmgSrv.Optimizer(char, buff, 30, condition, 1);
   }

@@ -10,6 +10,7 @@ export class DmgService {
   private readonly RateUp: number = 3.31;
   private readonly ErUp: number = 5.51;
   private readonly AtkUp: number = 4.96;
+  private readonly EmUp: number = 19.81;
 
   public GetDmg(
     atkBase: number,
